@@ -8,14 +8,10 @@ public:
             return;
         }
         if(o<n){
-            t.push_back('(');
-            solve(o+1,c,t,n);
-            t.pop_back();
+            solve(o+1,c,t+'(',n);
         }
         if(c<o){
-            t.push_back(')');
-            solve(o,c+1,t,n);
-            t.pop_back();
+            solve(o,c+1,t+')',n);
         }
     }
     vector<string> generateParenthesis(int n) {
@@ -23,4 +19,3 @@ public:
         solve(0,0,t,n);
         return ans;
     }
-};
